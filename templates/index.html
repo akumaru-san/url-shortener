@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Url Shortener</title>
+	<link rel="icon" type="image/png" href="https://tinyurl.com/images/icons/favicon-16.png" sizes="16x16">
+	<link rel="icon" type="image/png" href="https://tinyurl.com/images/icons/favicon-32.png" sizes="32x32">
+	<link rel="icon" type="image/png" href="https://tinyurl.com/images/icons/favicon-48.png" sizes="48x48">
+	<link rel="icon" type="image/png" href="https://tinyurl.com/images/icons/favicon-64.png" sizes="64x64">
+	<link rel="icon" type="image/png" href="https://tinyurl.com/images/icons/favicon-128.png" sizes="128x128">
+	<link rel="apple-touch-icon" sizes="152x152" href="https://tinyurl.com/images/icons/favicon-152.png">
+	<link rel="apple-touch-icon" sizes="167x167" href="https://tinyurl.com/images/icons/favicon-167.png">
+	<link rel="apple-touch-icon" sizes="180x180" href="https://tinyurl.com/images/icons/favicon-180.png">
+	<link rel="icon" type="image/png" href="https://tinyurl.com/images/icons/favicon-192.png" sizes="192x192">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+<body>
+	<nav class="navbar navbar-light bg-light">
+  <div class="container-fluid container">
+    <a class="navbar-brand" href="#">Url Shortener</a>
+  </div>
+</nav>
+	<form method="POST" action="/url">
+		<div class="container mt-5">
+			<div class="input-group mb-3">
+	 			 <span class="input-group-text" id="basic-addon3">https://google.com/</span>
+	  			<input type="text" class="form-control" name="text" id="basic-url" aria-describedby="basic-addon3">
+	  			<input type="submit" name="go" class="btn btn-success" value="Short">
+			</div>
+		</div>
+	</form>
+				<div class="form-floating container">
+  				<textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea">{{ result }}</textarea>
+  				<button onclick="copyText()" class="btn btn-success mt-3">Copy</button>
+			</div>
+<script>
+	function copyText() {
+  /* Get the text field */
+  var copyText = document.getElementById("floatingTextarea");
+
+  /* Select the text field */
+  copyText.select();
+  copyText.setSelectionRange(0, 99999); /* For mobile devices */
+
+   /* Copy the text inside the text field */
+  navigator.clipboard.writeText(copyText.value);
+
+  /* Alert the copied text */
+  alert("Copied");
+}
+</script>
+
+</body>
+</html>
